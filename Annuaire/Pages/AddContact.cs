@@ -14,11 +14,25 @@ namespace Annuaire.Pages
     public partial class AddContact : Form
     {
         private readonly Form1 _parent;
+        public string Id, Nom, Prenom, Fixe, Portable, Email, Service, Site;
 
         public AddContact(Form1 parent)
         {
             InitializeComponent();
             _parent = parent;
+        }
+
+        public void UpdateInfo()
+        {
+            label1.Text = "Modifier";
+            btnSave.Text = "Enregistrer";
+            txtNom.Text = Nom;
+            txtPrenom.Text = Prenom;
+            txtFixe.Text = Fixe;
+            txtPortable.Text = Portable;
+            txtEmail.Text = Email;
+            comboBox1.Text = Service;
+            comboBox2.Text = Site;
         }
 
         public void Clear()
@@ -67,6 +81,11 @@ namespace Annuaire.Pages
                 ContactData contact = new ContactData(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtFixe.Text.Trim(), txtPortable.Text.Trim(), txtEmail.Text.Trim(), comboBox1.Text.Trim(), comboBox2.Text.Trim(), checkBox1.Checked);
                 DBContact.AddContact(contact);
                 Clear();
+            }
+            if(btnSave.Text == "Enregistrer")
+            {
+                ContactData contact = new ContactData(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtFixe.Text.Trim(), txtPortable.Text.Trim(), txtEmail.Text.Trim(), comboBox1.Text.Trim(), comboBox2.Text.Trim(), checkBox1.Checked);
+                DBContact.UpdateContact(contact, Id);
             }
             _parent.Display();
         }

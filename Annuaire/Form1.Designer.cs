@@ -48,7 +48,6 @@ namespace Annuaire
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2.SuspendLayout();
@@ -147,7 +146,6 @@ namespace Annuaire
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Role,
             this.Column9,
             this.Column10});
             this.dataGridView1.Location = new System.Drawing.Point(18, 69);
@@ -215,12 +213,6 @@ namespace Annuaire
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
             // Column9
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -287,7 +279,6 @@ namespace Annuaire
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn Column10;
     }

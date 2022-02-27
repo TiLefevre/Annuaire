@@ -55,7 +55,7 @@ namespace Annuaire
             }
             con.Close();
         }
-        public static void UpdateContact(ContactData contact)
+        public static void UpdateContact(ContactData contact, string id)
         {
             string sql = "Update Annuaire SET Nom = @Nom, Prenom = @Prenom, Fixe = @Fixe, Portable = @Portable, Email = @Email, Service = @Service, Site = @Site";
             MySqlConnection con = GetConnection();
