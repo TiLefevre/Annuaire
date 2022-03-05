@@ -221,6 +221,7 @@ namespace Annuaire.Pages
             // txtPortable
             // 
             this.txtPortable.Location = new System.Drawing.Point(15, 145);
+            this.txtPortable.MaxLength = 10;
             this.txtPortable.Name = "txtPortable";
             this.txtPortable.Size = new System.Drawing.Size(203, 23);
             this.txtPortable.TabIndex = 3;
@@ -228,6 +229,7 @@ namespace Annuaire.Pages
             // txtFixe
             // 
             this.txtFixe.Location = new System.Drawing.Point(15, 107);
+            this.txtFixe.MaxLength = 10;
             this.txtFixe.Name = "txtFixe";
             this.txtFixe.Size = new System.Drawing.Size(203, 23);
             this.txtFixe.TabIndex = 2;
@@ -255,7 +257,7 @@ namespace Annuaire.Pages
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "AddContact";
-            this.Text = "AddContact";
+            this.Text = "Page de contact";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

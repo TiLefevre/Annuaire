@@ -46,21 +46,22 @@ namespace Annuaire
             {
                 //con.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Added successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ajout effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch(MySqlException ex)
             {
-                MessageBox.Show("Contact not insert: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ajout non effectué: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             con.Close();
         }
         public static void UpdateContact(ContactData contact, string id)
         {
-            string sql = "Update Annuaire SET Nom = @Nom, Prenom = @Prenom, Fixe = @Fixe, Portable = @Portable, Email = @Email, Service = @Service, Site = @Site";
+            string sql = "Update Annuaire SET Nom = @Nom, Prenom = @Prenom, Fixe = @Fixe, Portable = @Portable, Email = @Email, Service = @Service, Site = @Site WHERE Id = @Id";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
             cmd.Parameters.Add("@Nom", MySqlDbType.VarChar).Value = contact.Nom;
             cmd.Parameters.Add("@Prenom", MySqlDbType.VarChar).Value = contact.Prenom;
             cmd.Parameters.Add("@Fixe", MySqlDbType.VarChar).Value = contact.Fixe;
@@ -72,11 +73,11 @@ namespace Annuaire
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Update successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Modification effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Contact not update: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Contact non modifié: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             con.Close();
         }
@@ -90,11 +91,11 @@ namespace Annuaire
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Delete successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Suppréssion effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Contact not delete: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Contact non supprimé: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             con.Close();
         }
@@ -109,5 +110,6 @@ namespace Annuaire
             dvg.DataSource = tbl;
             con.Close();
         }
+        
     }
 }
