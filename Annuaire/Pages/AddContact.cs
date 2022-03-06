@@ -16,6 +16,12 @@ namespace Annuaire.Pages
         private readonly Form1 _parent;
         public string Id, Nom, Prenom, Fixe, Portable, Email, Service, Site;
 
+        private void AddContact_Load(object sender, EventArgs e)
+        {
+            DBContact.search("SELECT Nom From Services", comboBox1);
+            DBContact.search("SELECT Nom From Sites", comboBox2);
+        }
+
         public AddContact(Form1 parent)
         {
             InitializeComponent();
@@ -38,6 +44,10 @@ namespace Annuaire.Pages
         public void Clear()
         {
             txtNom.Text = txtPrenom.Text = txtFixe.Text = txtPortable.Text = txtEmail.Text = comboBox1.Text = comboBox2.Text = string.Empty;
+        }
+        public void listSite()
+        {
+
         }
         private void button1_Click(object sender, EventArgs e)
         {

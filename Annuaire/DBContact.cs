@@ -110,6 +110,133 @@ namespace Annuaire
             dvg.DataSource = tbl;
             con.Close();
         }
-        
+        public static void search(string query, ComboBox cb)
+        {
+            MySqlDataReader dr;
+            string sql = query;
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                cb.Items.Add(dr.GetValue(0));
+            }
+            
+        }
+
+        public static void AddSites(SitesData sites)
+        {
+            string sql = "INSERT INTO `Sites`(`Nom`) VALUES (@Nom)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Nom", MySqlDbType.VarChar).Value = sites.Nom;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ajout effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Ajout non effectué: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+        public static void UpdateSites(SitesData sites, string id)
+        {
+            string sql = "Update Sites SET Nom = @Nom WHERE Id = @Id";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@Nom", MySqlDbType.VarChar).Value = sites.Nom;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Modification effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Contact non modifié: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+        public static void DeleteSites(string id)
+        {
+            string sql = "DELETE FROM Sites WHERE Id = @Id";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Suppréssion effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Contact non supprimé: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+
+        public static void AddServices(ServiceData sites)
+        {
+            string sql = "INSERT INTO `Services`(`Nom`) VALUES (@Nom)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Nom", MySqlDbType.VarChar).Value = sites.Nom;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ajout effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Ajout non effectué: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+        public static void UpdateServices(ServiceData sites, string id)
+        {
+            string sql = "Update Services SET Nom = @Nom WHERE Id = @Id";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@Nom", MySqlDbType.VarChar).Value = sites.Nom;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Modification effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Contact non modifié: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+        public static void DeleteServices(string id)
+        {
+            string sql = "DELETE FROM Services WHERE Id = @Id";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Suppréssion effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Contact non supprimé: \n" + ex.Message, "erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+
     }
 }

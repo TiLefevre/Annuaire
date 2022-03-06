@@ -112,12 +112,6 @@ namespace Annuaire.Pages
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Paris",
-            "Nantes",
-            "Toulouse",
-            "Nice",
-            "Lille"});
             this.comboBox2.Location = new System.Drawing.Point(15, 262);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(203, 23);
@@ -135,12 +129,6 @@ namespace Annuaire.Pages
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Comptabilité",
-            "Production",
-            "Accueil",
-            "Informatique",
-            "Commercial"});
             this.comboBox1.Location = new System.Drawing.Point(15, 222);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(203, 23);
@@ -258,6 +246,7 @@ namespace Annuaire.Pages
             this.Controls.Add(this.panel1);
             this.Name = "AddContact";
             this.Text = "Page de contact";
+            this.Load += new System.EventHandler(this.AddContact_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

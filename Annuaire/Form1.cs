@@ -48,7 +48,7 @@ namespace Annuaire
 
         private void search_TextChanged(object sender, EventArgs e)
         {
-            DBContact.DisplayAndSearch("SELECT id, Nom, Prenom, Fixe, Portable, Email, Service, Site FROM Annuaire WHERE Nom LIKE '%"+ search.Text +"%' or Prenom LIKE '%"+ search.Text +"%'", dataGridView1);
+            DBContact.DisplayAndSearch("SELECT id, Nom, Prenom, Fixe, Portable, Email, Service, Site FROM Annuaire WHERE Nom LIKE '%"+ search.Text +"%' or Prenom LIKE '%"+ search.Text + "%' or Site LIKE '%" + search.Text + "%' or Service LIKE '%" + search.Text + "%'", dataGridView1);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -79,6 +79,18 @@ namespace Annuaire
                 }
                 return;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Sites sites = new Sites();
+            sites.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Services services = new Services();
+            services.Show();
         }
     }
 }
