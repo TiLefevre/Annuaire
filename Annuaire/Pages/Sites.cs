@@ -58,5 +58,10 @@ namespace Annuaire.Pages
             addServiceSite.Clear();
             addServiceSite.ShowDialog();
         }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            DBContact.DisplayAndSearch("SELECT id, Nom FROM Sites WHERE Nom LIKE '%" + search.Text + "%'", dataGridView1);
+        }
     }
 }

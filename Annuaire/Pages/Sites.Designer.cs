@@ -57,16 +57,18 @@ namespace Annuaire.Pages
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.search);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(12, 117);
+            this.panel2.Location = new System.Drawing.Point(14, 156);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(406, 363);
+            this.panel2.Size = new System.Drawing.Size(464, 484);
             this.panel2.TabIndex = 4;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(299, 21);
+            this.button2.Location = new System.Drawing.Point(342, 28);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 34);
+            this.button2.Size = new System.Drawing.Size(114, 45);
             this.button2.TabIndex = 3;
             this.button2.Text = "Nouveau";
             this.button2.UseVisualStyleBackColor = true;
@@ -74,19 +76,22 @@ namespace Annuaire.Pages
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(208, 27);
+            this.button1.Location = new System.Drawing.Point(238, 36);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 23);
+            this.button1.Size = new System.Drawing.Size(97, 31);
             this.button1.TabIndex = 2;
             this.button1.Text = "Rechercher";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(18, 27);
+            this.search.Location = new System.Drawing.Point(21, 36);
+            this.search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(184, 23);
+            this.search.Size = new System.Drawing.Size(210, 27);
             this.search.TabIndex = 1;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // dataGridView1
             // 
@@ -108,13 +113,15 @@ namespace Annuaire.Pages
             this.Column10});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 92);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(365, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(417, 321);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -122,6 +129,7 @@ namespace Annuaire.Pages
             // 
             this.Column1.DataPropertyName = "Id";
             this.Column1.HeaderText = "Id";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
@@ -129,6 +137,7 @@ namespace Annuaire.Pages
             // 
             this.Column2.DataPropertyName = "Nom";
             this.Column2.HeaderText = "Nom";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -140,6 +149,7 @@ namespace Annuaire.Pages
             this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column9.HeaderText = "";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -154,6 +164,7 @@ namespace Annuaire.Pages
             this.Column10.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column10.HeaderText = "";
+            this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -168,9 +179,9 @@ namespace Annuaire.Pages
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Orange;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(14, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 37);
+            this.label1.Size = new System.Drawing.Size(90, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sites";
             // 
@@ -179,18 +190,20 @@ namespace Annuaire.Pages
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 100);
+            this.panel1.Size = new System.Drawing.Size(491, 133);
             this.panel1.TabIndex = 3;
             // 
             // Sites
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 492);
+            this.ClientSize = new System.Drawing.Size(491, 656);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Sites";
             this.Text = "Sites";
             this.Shown += new System.EventHandler(this.Sites_Shown);

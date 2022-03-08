@@ -44,7 +44,6 @@ namespace Annuaire
            
             try
             {
-                //con.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Ajout effectué.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
